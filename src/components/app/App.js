@@ -63,7 +63,7 @@ const App = () => {
                 }
             }}
         >
-            <Auth.Provider authConfig={config}>
+            <Auth.Provider config={config}>
                 <Header />
                 <Auth.Screens />
             </Auth.Provider>
