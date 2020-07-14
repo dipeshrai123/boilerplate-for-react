@@ -1,5 +1,5 @@
 {
-  "name": "now_test",
+  "name": "uicomp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
-    "react-uicomp": "^1.0.0"
+    "react-uicomp": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
