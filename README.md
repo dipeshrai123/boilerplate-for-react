@@ -1,5 +1,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## For Redux integration replace index.js with code below  
+
+```bash
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import reducers from "./reducers/Reducers";
+import AppWithRouter from "./components/app/App";
+import "./sass/main.scss";
+
+const store = createStore(reducers, applyMiddleware(thunk));
+
+ReactDOM.render(
+	<Provider store={store}>
+		<AppWithRouter />
+	</Provider>,
+	document.querySelector("#root")
+);
+```  
+
 ## Available Scripts
 
 In the project directory, you can run:
