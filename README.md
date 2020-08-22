@@ -19,10 +19,10 @@ import "./sass/main.scss";
 const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
-	<Provider store={store}>
-		<AppWithRouter />
-	</Provider>,
-	document.querySelector("#root")
+  <Provider store={store}>
+  	<AppWithRouter />
+  </Provider>,
+  document.querySelector("#root")
 );
 ```
 
