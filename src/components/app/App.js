@@ -3,9 +3,10 @@ import { Auth, withNavigation } from "react-uicomp";
 import { publicPaths, privatePaths } from "./Routes.app";
 import { userRoles } from "./UserRoles.app";
 
+// COMMONS
 import Header from "../common/header/Header.common";
 
-// return `Auth.Provider` with `Auth.Screens` inside it
+// ROOT COMPONENT
 const App = () => {
   return (
     <Auth.Provider config={{ isLoggedIn: true, userRole: "admin" }}>
