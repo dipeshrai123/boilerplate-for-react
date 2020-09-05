@@ -6,14 +6,12 @@ import NotFoundPage from "../notFoundPage/NotFoundPage";
 
 export const publicPaths = [
   {
-    key: "Login",
     name: "Login",
     path: "/log-in",
     component: LoginPage,
     restricted: true,
   },
   {
-    key: "Signin",
     name: "Signin",
     path: "/sign-in",
     component: SigninPage,
@@ -27,7 +25,6 @@ export const publicPaths = [
 
 export const privatePaths = [
   {
-    key: "Dashboard",
     name: "Dashboard",
     path: "/dashboard",
     component: DashboardPage,

@@ -16,6 +16,7 @@ const App = () => {
   );
 };
 
+// WRAP WITH withNavigation HOC
 export default withNavigation(App, {
   publicPaths,
   privatePaths,
