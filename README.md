@@ -55,4 +55,56 @@ npm i react-icons
 npm i react-hook-form
 ```
 
+### API Calls
+
+To do API Calls, we need to create an **api** function from **apiGenerator** function available in _src/helpers/Helpers.js_. 
+
+```js
+// Api.config.js
+
+import { apiGenerator } from "../helpers/Helpers";
+
+const token = getCookie("token"); // GET TOKEN FROM COOKIE
+export const BASE_URL = "http://192.168.1.1:8000"; // BASE URL
+
+export const api = apiGenerator({ token, baseURL: BASE_URL }); // API FUNCTION
+```
+
+Now you can use this **api** function in any actions or anywhere you want to do api calls. The API Reference for **api** function is :
+
+```js
+api(url, method, body, config);
+```
+
+- url - _end-point URL_
+- method ( optional ) Default: **GET**
+- body ( optional ) 
+- config ( optional ) - _config object with following properties_
+  - file ( optional ) - **true** to upload file, otherwise **false**
+  - fileUploadProgress (optional) - function which is called with one parameter i.e. **percentage ** while uploading
+  - fileDownloadProgress (optional) - function which is called with one parameter i.e. **percentage **while downloading
+
+**Example**
+
+```js
+// Sample.action.js
+import { api } from "../config/Config";
+...
+
+dispatch({ type: SAMPLE.LOADING });
+
+res = await api(`${APIS.sample}`, "POST", formData, {
+    file: true,
+    fileUploadProgress: function(percentage) {
+        dispatch({ type: SAMPLE.PROGRESS, payload: percentage });
+    }
+});
+
+if(res.success) dispatch({ type: SAMPLE.SUCCESS });
+
+...
+```
+
+
+
 For official documentation for **react-uicomp** visit : https://react-uicomp.js.org/
