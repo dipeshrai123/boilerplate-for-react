@@ -81,8 +81,8 @@ api(url, method, body, config);
 - body ( optional ) 
 - config ( optional ) - _config object with following properties_
   - file ( optional ) - **true** to upload file, otherwise **false**
-  - fileUploadProgress (optional) - function which is called with one parameter i.e. **percentage ** while uploading
-  - fileDownloadProgress (optional) - function which is called with one parameter i.e. **percentage **while downloading
+  - fileUploadProgress (optional) - function which is called with one parameter i.e. **percentage** while uploading
+  - fileDownloadProgress (optional) - function which is called with one parameter i.e. **percentage** while downloading
 
 **Example**
 
