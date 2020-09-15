@@ -1,13 +1,9 @@
-export function createActionSet(actionName, hasProgress = false) {
-  const actionObj = {
+// ACTION SET GENERATOR
+export function createActionSet(actionName) {
+  return {
     LOADING: `${actionName}_LOADING`,
     SUCCESS: `${actionName}_SUCCESS`,
     ERROR: `${actionName}_ERROR`,
+    PROGRESS: `${actionName}_PROGRESS`,
   };
-
-  if (hasProgress) {
-    actionObj.PROGRESS = `${actionName}_PROGRESS`;
-  }
-
-  return actionObj;
 }
