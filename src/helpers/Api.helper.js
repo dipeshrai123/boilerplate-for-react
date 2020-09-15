@@ -43,7 +43,7 @@ export function apiGenerator({ token, baseURL }) {
     let response;
     try {
       response = await axios(config);
-      return response.data;
+      return response;
     } catch (e) {
       return new Error(e.response.data.message || e.response.data || e.message);
     }
