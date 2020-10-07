@@ -1,9 +1,9 @@
 // USER ROLES
 export const userRoles = {
-  admin: {
-    access: ["*"],
-  },
-  user: {
+  USER: {
     access: ["/", "/log-in", "/sign-in"],
+  },
+  SUPERADMIN: {
+    access: ["/", "/dashboard", "/log-in", "/sign-in"],
   },
 };

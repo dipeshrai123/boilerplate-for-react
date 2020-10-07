@@ -15,10 +15,10 @@ export function apiGenerator({ token, baseURL }) {
 
     if (method) config.method = method;
     if (body) config.data = body;
-    if (apiConfig.headers) config.headers = apiConfig.headers;
+    if (apiConfig?.headers) config.headers = apiConfig.headers;
 
     // For file
-    if (apiConfig.file) {
+    if (apiConfig?.file) {
       config.headers = {
         "Content-Type": `multipart/form-data`,
         Authorization: `Bearer ${token}`,
@@ -28,14 +28,14 @@ export function apiGenerator({ token, baseURL }) {
         let progress = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total,
         );
-        apiConfig.fileUploadProgress && apiConfig.fileUploadProgress(progress);
+        apiConfig?.fileUploadProgress && apiConfig.fileUploadProgress(progress);
       };
       // FOR DOWNLOAD
       config.onDownloadProgress = function (progressEvent) {
         let progress = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total,
         );
-        apiConfig.fileDownloadProgress &&
+        apiConfig?.fileDownloadProgress &&
           apiConfig.fileDownloadProgress(progress);
       };
     }

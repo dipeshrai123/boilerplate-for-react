@@ -1,3 +1,3 @@
 // FILES AND FOLDERS
 export * from "./ActionTypes.action";
-export * from "./Sample.action";
+export * from "./Login.action";

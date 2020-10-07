@@ -1,4 +1,3 @@
 import { createActionSet } from "../helpers/Helpers";
 
-// SAMPLE ACTION SET
-export const SAMPLE = createActionSet("SAMPLE");
+export const USER_LOGIN = createActionSet("USER_LOGIN");
