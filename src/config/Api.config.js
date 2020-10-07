@@ -9,4 +9,6 @@ export const api = apiGenerator({ token, baseURL: BASE_URL });
 // API PATHS
 export const APIS = {
   login: "/auth/login",
+  assignedoffice: "/file/location",
+  uploadfile: "/file/upload",
 };
