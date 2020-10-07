@@ -57,7 +57,7 @@ npm i react-hook-form
 
 ### API Calls
 
-To do API Calls, we need to create an **api** function from **apiGenerator** function available in _src/helpers/Helpers.js_. 
+To do API Calls, we need to create an **api** function from **apiGenerator** function available in _src/helpers/Helpers.js_.
 
 ```js
 // Api.config.js
@@ -78,7 +78,7 @@ api(url, method, body, config);
 
 - url - _end-point URL_
 - method ( optional ) Default: **GET**
-- body ( optional ) 
+- body ( optional )
 - config ( optional ) - _config object with following properties_
   - file ( optional ) - **true** to upload file, otherwise **false**
   - fileUploadProgress (optional) - function which is called with one parameter i.e. **percentage** while uploading
@@ -100,11 +100,11 @@ res = await api(`${APIS.sample}`, "POST", formData, {
     }
 });
 
-if(res.success) dispatch({ type: SAMPLE.SUCCESS });
+const { success } = res.data; // res.data is now required
+
+if(success) dispatch({ type: SAMPLE.SUCCESS });
 
 ...
 ```
-
-
 
 For official documentation for **react-uicomp** visit : https://react-uicomp.js.org/
