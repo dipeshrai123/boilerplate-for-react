@@ -1,5 +1,5 @@
 import { SAMPLE } from "./Actions";
-import { APIS, api } from "../config/Config";
+import { api, APIS } from "../config/Config";
 
 export function sampleAction({ param1, param2 }) {
   return async function (dispatch) {
@@ -9,7 +9,7 @@ export function sampleAction({ param1, param2 }) {
 
       res = await api(`${APIS.sample}`, "POST", { param1, param2 });
 
-      const { success } = res;
+      const { success } = res.data;
 
       if (success) {
         dispatch({ type: SAMPLE.SUCCESS });
