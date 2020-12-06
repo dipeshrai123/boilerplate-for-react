@@ -1,6 +1,6 @@
-# React Boilerplate for react-uicomp
+# Boilerplate for react
 
-> Official boilerplate for react app with react-uicomp
+> Official boilerplate for react app with react-auth-navigaton & react-uicomp
 
 ### Redux Integration
 
@@ -106,5 +106,53 @@ if(success) dispatch({ type: SAMPLE.SUCCESS });
 
 ...
 ```
+
+### Custom Form Validation
+
+For custom form validation, we need to import **validator()** and **isValid()** functions from _src/utils/Utils.js_.
+
+```javascript
+import { validator, isValid } from "../utils/Validator.util";
+```
+
+Now this **validator()** function on passing empty object returns a **validate()** function which is used to validate a input form.
+
+Lets say we want to validate the form on submit:
+
+```javascript
+import { validator, isValid } from "../utils/Validator.util";
+...
+const onSubmit = () => {
+    const catchedErrors = {};
+    const validate = validator(catchedErrors);
+    
+    // ...
+}
+...
+```
+
+Now **validate()** function takes three parameters, first one is key whose value will be **true** of an **object** passed to **validator()** function when second argument condition is **true**. where last parameter is an optional callback function which is called when second condition is **true**.
+
+```javascript
+import { validator, isValid } from "../utils/Validator.util";
+...
+const onSubmit = () => {
+    const catchedErrors = {};
+    const validate = validator(catchedErrors);
+    
+    // VALIDATION
+    validate("firstname", image?.length === 0, () => {
+    	//.. called when condition is true.
+    });
+
+    if (!isValid(catchedErrors)) {
+        console.error(catchedErros);
+        return;
+    }
+}
+...
+```
+
+
 
 For official documentation for **react-uicomp** visit : https://react-uicomp.js.org/
