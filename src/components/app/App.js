@@ -6,12 +6,21 @@ import { userRoles } from "./UserRoles.app";
 // COMMONS
 import Header from "../common/header/Header.common";
 
+// AUTH CHILD
+const AuthChild = React.memo(() => {
+  return (
+    <>
+      <Header />
+      <Auth.Screens />
+    </>
+  );
+});
+
 // ROOT COMPONENT
 const App = () => {
   return (
     <Auth.Provider config={{ isLoggedIn: true, userRole: "admin" }}>
-      <Header />
-      <Auth.Screens />
+      <AuthChild />
     </Auth.Provider>
   );
 };
