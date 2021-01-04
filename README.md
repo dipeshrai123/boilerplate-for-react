@@ -1,6 +1,6 @@
 # Boilerplate for react
 
-> Official boilerplate for react app with react-auth-navigaton & react-uicomp
+> Official boilerplate for react app with react-auth-navigaton
 
 ### Redux Integration
 
@@ -125,7 +125,7 @@ import { validator, isValid } from "../utils/Validator.util";
 const onSubmit = () => {
     const catchedErrors = {};
     const validate = validator(catchedErrors);
-    
+
     // ...
 }
 ...
@@ -139,7 +139,7 @@ import { validator, isValid } from "../utils/Validator.util";
 const onSubmit = () => {
     const catchedErrors = {};
     const validate = validator(catchedErrors);
-    
+
     // VALIDATION
     validate("firstname", image?.length === 0, () => {
     	//.. called when condition is true.
@@ -152,7 +152,3 @@ const onSubmit = () => {
 }
 ...
 ```
-
-
-
-For official documentation for **react-uicomp** visit : https://react-uicomp.js.org/

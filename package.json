@@ -18,10 +18,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node patchAnimation.patch.js && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "production:build": "GENERATE_SOURCEMAP=false react-scripts build"
+    "production:build": "node patchAnimation.patch.js && GENERATE_SOURCEMAP=false react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "replace-in-file": "^6.1.0"
   }
 }
