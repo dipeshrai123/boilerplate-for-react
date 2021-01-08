@@ -1,9 +1,9 @@
 // USER ROLES
 export const userRoles = {
-  admin: {
-    access: ["*"],
-  },
   user: {
-    access: ["/", "/log-in", "/sign-in"],
+    access: ["/", "/log-in", "/sign-in", "/dashboard/*"], // /dashboard/* FOR ALL SUB ROUTES OF dashboard
+  },
+  admin: {
+    access: ["*"], // ACESS ALL ROUTES
   },
 };

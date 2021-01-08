@@ -1,6 +1,6 @@
-# React Boilerplate for react-uicomp
+# Boilerplate for react
 
-> Official boilerplate for react app with react-uicomp
+> Official boilerplate for react app with react-auth-navigaton
 
 ### Redux Integration
 
@@ -57,7 +57,7 @@ npm i react-hook-form
 
 ### API Calls
 
-To do API Calls, we need to create an **api** function from **apiGenerator** function available in _src/helpers/Helpers.js_. 
+To do API Calls, we need to create an **api** function from **apiGenerator** function available in _src/helpers/Helpers.js_.
 
 ```js
 // Api.config.js
@@ -78,7 +78,7 @@ api(url, method, body, config);
 
 - url - _end-point URL_
 - method ( optional ) Default: **GET**
-- body ( optional ) 
+- body ( optional )
 - config ( optional ) - _config object with following properties_
   - file ( optional ) - **true** to upload file, otherwise **false**
   - fileUploadProgress (optional) - function which is called with one parameter i.e. **percentage** while uploading
@@ -100,11 +100,55 @@ res = await api(`${APIS.sample}`, "POST", formData, {
     }
 });
 
-if(res.success) dispatch({ type: SAMPLE.SUCCESS });
+const { success } = res.data; // res.data is now required
+
+if(success) dispatch({ type: SAMPLE.SUCCESS });
 
 ...
 ```
 
+### Custom Form Validation
 
+For custom form validation, we need to import **validator()** and **isValid()** functions from _src/utils/Utils.js_.
 
-For official documentation for **react-uicomp** visit : https://react-uicomp.js.org/
+```javascript
+import { validator, isValid } from "../utils/Validator.util";
+```
+
+Now this **validator()** function on passing empty object returns a **validate()** function which is used to validate a input form.
+
+Lets say we want to validate the form on submit:
+
+```javascript
+import { validator, isValid } from "../utils/Validator.util";
+...
+const onSubmit = () => {
+    const catchedErrors = {};
+    const validate = validator(catchedErrors);
+
+    // ...
+}
+...
+```
+
+Now **validate()** function takes three parameters, first one is key whose value will be **true** of an **object** passed to **validator()** function when second argument condition is **true**. where last parameter is an optional callback function which is called when second condition is **true**.
+
+```javascript
+import { validator, isValid } from "../utils/Validator.util";
+...
+const onSubmit = () => {
+    const catchedErrors = {};
+    const validate = validator(catchedErrors);
+
+    // VALIDATION
+    validate("firstname", image?.length === 0, () => {
+    	//.. called when condition is true.
+    });
+
+    if (!isValid(catchedErrors)) {
+        console.error(catchedErros);
+        return;
+    }
+}
+...
+```
