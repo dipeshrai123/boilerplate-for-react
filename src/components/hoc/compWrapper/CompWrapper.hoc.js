@@ -1,7 +1,5 @@
 import React from "react";
 
-const CompWrapper = ({ children }) => {
+export function CompWrapper({ children }) {
   return <div className="compwrapper">{children}</div>;
-};
-
-export default CompWrapper;
+}

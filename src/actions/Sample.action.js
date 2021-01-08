@@ -1,4 +1,4 @@
-import { SAMPLE } from "./Actions";
+import { SAMPLE } from ".";
 import { api, APIS } from "../config/Config";
 
 export function sampleAction({ param1, param2 }) {

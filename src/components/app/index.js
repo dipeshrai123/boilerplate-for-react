@@ -3,10 +3,10 @@ import { Auth, withNavigation } from "react-auth-navigation";
 import { publicPaths, privatePaths } from "./Routes.app";
 import { userRoles } from "./UserRoles.app";
 
-// COMMONS
-import Header from "../common/header/Header.common";
+// commons
+import { Header } from "../common";
 
-// AUTH CHILD
+// Auth child
 const AuthChild = React.memo(() => {
   return (
     <>
@@ -16,7 +16,7 @@ const AuthChild = React.memo(() => {
   );
 });
 
-// ROOT COMPONENT
+// Root component
 const App = () => {
   return (
     <Auth.Provider config={{ isLoggedIn: true, userRole: "admin" }}>
@@ -25,7 +25,7 @@ const App = () => {
   );
 };
 
-// WRAP WITH withNavigation HOC
+// withNavigation
 export default withNavigation(App, {
   publicPaths,
   privatePaths,
