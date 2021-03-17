@@ -1,7 +1,9 @@
 import axios from "axios";
+import { getCookie } from ".";
 
-export function apiGenerator({ token, baseURL }) {
+export function apiGenerator({ baseURL }) {
   return async function api(url, method, body, apiConfig) {
+    const token = getCookie("token");
     const config = {
       method: "GET",
       baseURL,
