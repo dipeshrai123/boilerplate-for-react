@@ -62,12 +62,11 @@ To do API Calls, we need to create an **api** function from **apiGenerator** fun
 ```js
 // Api.config.js
 
-import { apiGenerator } from "../helpers/Helpers";
+import { apiGenerator } from "../helpers";
 
-const token = getCookie("token"); // GET TOKEN FROM COOKIE
 export const BASE_URL = "http://192.168.1.1:8000"; // BASE URL
 
-export const api = apiGenerator({ token, baseURL: BASE_URL }); // API FUNCTION
+export const api = apiGenerator({ baseURL: BASE_URL }); // API FUNCTION
 ```
 
 Now you can use this **api** function in any actions or anywhere you want to do api calls. The API Reference for **api** function is :
@@ -88,7 +87,7 @@ api(url, method, body, config);
 
 ```js
 // Sample.action.js
-import { api } from "../config/Config";
+import { api } from "../config";
 ...
 
 dispatch({ type: SAMPLE.LOADING });
@@ -112,7 +111,7 @@ if(success) dispatch({ type: SAMPLE.SUCCESS });
 For custom form validation, we need to import **validator()** and **isValid()** functions from _src/utils/Utils.js_.
 
 ```javascript
-import { validator, isValid } from "../utils/Validator.util";
+import { validator, isValid } from "../utils";
 ```
 
 Now this **validator()** function on passing empty object returns a **validate()** function which is used to validate a input form.
@@ -120,7 +119,7 @@ Now this **validator()** function on passing empty object returns a **validate()
 Lets say we want to validate the form on submit:
 
 ```javascript
-import { validator, isValid } from "../utils/Validator.util";
+import { validator, isValid } from "../utils";
 ...
 const onSubmit = () => {
     const catchedErrors = {};
@@ -134,7 +133,7 @@ const onSubmit = () => {
 Now **validate()** function takes three parameters, first one is key whose value will be **true** of an **object** passed to **validator()** function when second argument condition is **true**. where last parameter is an optional callback function which is called when second condition is **true**.
 
 ```javascript
-import { validator, isValid } from "../utils/Validator.util";
+import { validator, isValid } from "../utils";
 ...
 const onSubmit = () => {
     const catchedErrors = {};
